@@ -23,10 +23,6 @@ jobs:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2
 
-      # Runs a single command using the runners shell
-      - name: Say hello
-        run: echo Updating the Wiki Page
-
       # Runs a set of commands using the runners shell
       - name: Run a multi-line script
         run: |
@@ -39,11 +35,12 @@ jobs:
           echo "getting file contents"
           cat home.md
           pwd
+          
       - uses: actions/checkout@v1
       # Additional steps to generate documentation in "Documentation" directory
       - name: Upload Documentation to Wiki
         uses: SwiftDocOrg/github-wiki-publish-action@v1
         with:
-          path: /home/runner/work/testing/testing/assets/wiki-output
+          path: CI/testing/testing/assets/wiki-output
         env:
           GH_PERSONAL_ACCESS_TOKEN: ${{ secrets.GH_PERSONAL_ACCESS_TOKEN }}
