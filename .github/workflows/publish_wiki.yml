@@ -34,6 +34,7 @@ jobs:
           echo "getting file contents"
           cat home.md
           pwd
+          ls
           
       - uses: actions/checkout@v1
       # Additional steps to generate documentation in "Documentation" directory
@@ -47,5 +48,6 @@ jobs:
       - name: Run a multi-line script
         run: |
           pwd
+          cd /home/runner
           ls
           
