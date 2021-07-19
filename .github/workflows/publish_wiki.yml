@@ -26,12 +26,11 @@ jobs:
       # Runs a set of commands using the runners shell
       - name: Run a multi-line script
         run: |
-          cd $GITHUB_WORKSPACE
-          cd assets
-          chmod +x conversion_wiki.sh
+          chmod +x $GITHUB_WORKSPACE/assets/conversion_wiki.sh
+          cd /home/runner
           mkdir wiki-output
           cd wiki-output
-          ../conversion_wiki.sh
+          $GITHUB_WORKSPACE/assets/conversion_wiki.sh
           echo "getting file contents"
           cat home.md
           pwd
@@ -41,7 +40,7 @@ jobs:
       - name: Upload Documentation to Wiki
         uses: SwiftDocOrg/github-wiki-publish-action@v1
         with:
-          path: assets/wiki-output
+          path: /home/runner/wiki-output
         env:
           GH_PERSONAL_ACCESS_TOKEN: ${{ secrets.GH_PERSONAL_ACCESS_TOKEN }}
         
