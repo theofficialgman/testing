@@ -41,7 +41,7 @@ jobs:
       - name: Upload Documentation to Wiki
         uses: SwiftDocOrg/github-wiki-publish-action@v1
         with:
-          path: CI
+          path: assets/wiki-output
         env:
           GH_PERSONAL_ACCESS_TOKEN: ${{ secrets.GH_PERSONAL_ACCESS_TOKEN }}
         
@@ -50,4 +50,5 @@ jobs:
           pwd
           cd $GITHUB_WORKSPACE
           pwd
+          ls assets/wiki-output
           
