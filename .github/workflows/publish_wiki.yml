@@ -48,7 +48,5 @@ jobs:
       - name: Run a multi-line script
         run: |
           pwd
-          cd $GITHUB_WORKSPACE
-          pwd
-          ls assets/wiki-output
+          ls
           
