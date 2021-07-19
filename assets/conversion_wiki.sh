@@ -29,4 +29,4 @@ conversion() {
   done
 }
 clear
-conversion
+conversion > home.md
