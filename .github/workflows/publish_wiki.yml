@@ -33,4 +33,7 @@ jobs:
           cd $GITHUB_WORKSPACE
           cd assets
           chmod +x conversion_wiki.sh
-          ./conversion_wiki.sh
+          mkdir wiki-output
+          cd wiki-output
+          ../conversion_wiki.sh
+          cat home.md
