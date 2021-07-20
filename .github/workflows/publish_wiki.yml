@@ -39,7 +39,7 @@ jobs:
         uses: docker://decathlon/wiki-page-creator-action:latest
         env:
           GH_PAT: ${{ secrets.GH_PERSONAL_ACCESS_TOKEN }}
-          ACTION_MAIL: $ {{ env.GITHUB_ACTOR }}@users.noreply.github.com
+          ACTION_MAIL: ${{ env.GITHUB_ACTOR }}@users.noreply.github.com
           ACTION_NAME: ${{ env.GITHUB_ACTOR }}
           OWNER: ${{ env.GITHUB_ACTOR }}
           REPO_NAME: ${{ env.GITHUB_REPOSITORY }}
