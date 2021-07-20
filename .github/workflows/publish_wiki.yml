@@ -31,9 +31,8 @@ jobs:
           mkdir wikioutput
           cd wikioutput
           $GITHUB_WORKSPACE/assets/conversion_wiki.sh
-          echo "getting file contents"
-          mv home.md Home.md
           cat Home.md
+
           
       - name: "Set environmental variables"
         run: |
@@ -47,11 +46,4 @@ jobs:
         env:
           GH_PAT: ${{ secrets.GH_PERSONAL_ACCESS_TOKEN }}
           MD_FOLDER: "/github/workspace/wikioutput"          
-          
-        
-      - name: Run a multi-line script
-        run: |
-          cd /home/runner
-          pwd
-          ls
-          
+
