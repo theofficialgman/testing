@@ -35,14 +35,17 @@ jobs:
           cat home.md
           pwd
           ls
+          
+      - name: "Set environmental variables"
+        run: |
+          echo "ACTION_MAIL=$GIHUB_ACTOR@users.noreply.github.com" >> $GITHUB_ENV
+          echo "ACTION_NAME=$GIHUB_ACTOR" >> $GITHUB_ENV
+          echo "OWNER=$GIHUB_ACTOR" >> $GITHUB_ENV
+          echo "REPO_NAME=$GITHUB_REPOSITORY" >> $GITHUB_ENV
       - name: Upload scripts page to wiki
         uses: docker://decathlon/wiki-page-creator-action:latest
         env:
           GH_PAT: ${{ secrets.GH_PERSONAL_ACCESS_TOKEN }}
-          ACTION_MAIL: "${{ env.GITHUB_ACTOR}}@users.noreply.github.com"
-          ACTION_NAME: "$GITHUB_ACTOR"
-          OWNER: "$GITHUB_ACTOR"
-          REPO_NAME: "$env.GITHUB_REPOSITORY"
           MD_FOLDER: /home/runner/wiki-output
           
         
