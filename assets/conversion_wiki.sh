@@ -1,9 +1,14 @@
+
 rm -rf /tmp/megascript_apps.txt
 wget https://raw.githubusercontent.com/cobalt2727/L4T-Megascript/master/megascript_apps.txt -O /tmp/megascript_apps.txt
 sed -i '/^$/d' /tmp/megascript_apps.txt
 length=$(wc -l "/tmp/megascript_apps.txt" | awk '{ print $1 }')
 prev_f=""
 conversion() {
+  echo "### Welcome to the L4T Megascript wiki! Use the sidebar on your right to navigate through here."
+  echo "### (or start with the [initial setup](https://github.com/cobalt2727/L4T-Megascript/wiki/Initial-Setup) )"
+  echo ""
+
   for ((i = 1; i <= ${length}; i++)); do
     if [[ ! " ${hidden[@]} " =~ " ${i} " ]]; then
       fn=""
@@ -29,4 +34,4 @@ conversion() {
   done
 }
 clear
-conversion > home.md
+conversion > Home.md
