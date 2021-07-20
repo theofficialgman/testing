@@ -47,7 +47,7 @@ jobs:
         uses: docker://decathlon/wiki-page-creator-action:latest
         env:
           GH_PAT: ${{ secrets.GH_PERSONAL_ACCESS_TOKEN }}
-          MD_FOLDER: "/github/workspace/wikioutput/home.md"          
+          MD_FOLDER: "/github/workspace/wikioutput"          
           
         
       - name: Run a multi-line script
