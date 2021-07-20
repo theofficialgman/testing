@@ -28,8 +28,8 @@ jobs:
         run: |
           chmod +x $GITHUB_WORKSPACE/assets/conversion_wiki.sh
           cd /home/runner
-          mkdir wiki-output
-          cd wiki-output
+          mkdir wikioutput
+          cd wikioutput
           $GITHUB_WORKSPACE/assets/conversion_wiki.sh
           echo "getting file contents"
           cat home.md
@@ -47,7 +47,7 @@ jobs:
         uses: docker://decathlon/wiki-page-creator-action:latest
         env:
           GH_PAT: ${{ secrets.GH_PERSONAL_ACCESS_TOKEN }}
-          MD_FOLDER: "/home/runner/wiki-output/home.md"
+          MD_FOLDER: "/home/runner/wikioutput/home.md"
           
         
       - name: Run a multi-line script
