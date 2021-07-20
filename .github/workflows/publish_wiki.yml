@@ -38,9 +38,9 @@ jobs:
           
       - name: "Set environmental variables"
         run: |
-          echo "ACTION_MAIL=$GIHUB_ACTOR@users.noreply.github.com" >> $GITHUB_ENV
-          echo "ACTION_NAME=$GIHUB_ACTOR" >> $GITHUB_ENV
-          echo "OWNER=$GIHUB_ACTOR" >> $GITHUB_ENV
+          echo "ACTION_MAIL=$GITHUB_ACTOR@users.noreply.github.com" >> $GITHUB_ENV
+          echo "ACTION_NAME=$GITHUB_ACTOR" >> $GITHUB_ENV
+          echo "OWNER=$GITHUB_ACTOR" >> $GITHUB_ENV
           echo "REPO_NAME=$GITHUB_REPOSITORY" >> $GITHUB_ENV
       - name: Upload scripts page to wiki
         uses: docker://decathlon/wiki-page-creator-action:latest
