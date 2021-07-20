@@ -32,9 +32,8 @@ jobs:
           cd wikioutput
           $GITHUB_WORKSPACE/assets/conversion_wiki.sh
           echo "getting file contents"
-          cat home.md
-          pwd
-          ls
+          mv home.md scripts.md
+          cat scripts.md
           
       - name: "Set environmental variables"
         run: |
