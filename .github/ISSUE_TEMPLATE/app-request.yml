@@ -1,6 +1,6 @@
 name: App request
 description: Submit an app to Pi Apps
-labels: App Request
+labels: bug
 body:
   - type: input
     id: app-name
@@ -47,4 +47,4 @@ body:
           required: true
         - label: I have confirmed that this app can run on Raspberry Pi.
           required: true
-labels: "zip included"
+labels: documentation
