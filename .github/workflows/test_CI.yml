@@ -13,7 +13,7 @@ jobs:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v3
       - name: Test installing updated apps
-        uses: theofficialgman/arm-runner-action@v1
+        uses: theofficialgman/arm-runner-action@v2
         with:
           # this is a buster armhf image
           base_image: raspios_lite:2021-05-07
@@ -27,3 +27,4 @@ jobs:
           commands: |
             # print user info
             echo $USER $USERNAME $(id) $(whoami)
+            sudo bash -c 'echo $USER $USERNAME $(id) $(whoami)'
