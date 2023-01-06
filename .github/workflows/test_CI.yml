@@ -1,0 +1,29 @@
+name: Test CI
+# Controls when the workflow will run
+on:
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+# A workflow run is made up of one or more jobs that can run sequentially or in parallel
+jobs:
+  update-apps:
+    # The type of runner that the job will run on
+    runs-on: ubuntu-latest
+    # Steps represent a sequence of tasks that will be executed as part of the job
+    steps:
+      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+      - uses: actions/checkout@v3
+      - name: Test installing updated apps
+        uses: pguyot/arm-runner-action@v2
+        with:
+          # this is a buster armhf image
+          base_image: raspios_lite:2021-05-07
+          # the action by default copies the repository already instead of mounting it
+          # changes are not saved after the chroot is exited so it is safe to operate within the pi-apps directory
+
+          # give the image more space
+          # image_additional_mb: 5000
+
+          import_github_env: true
+          commands: |
+            # print user info
+            echo $USER $USERNAME $(id) $(whoami)
