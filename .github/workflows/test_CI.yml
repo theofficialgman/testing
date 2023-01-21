@@ -10,6 +10,12 @@ jobs:
     runs-on: ubuntu-latest
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
+      -name: Pre-QEMU
+        run: |
+            lspci
+            free
+            nproc
+
       - name: Test installing updated apps
         uses: theofficialgman/arm-runner-action@v4
         with:
