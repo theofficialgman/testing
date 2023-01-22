@@ -38,3 +38,5 @@ jobs:
             lspci
             free
             nproc
+            ls /etc/apt/sources.list.d/
+            cat /etc/apt/sources.list.d/*
