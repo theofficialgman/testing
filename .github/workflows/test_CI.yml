@@ -10,33 +10,34 @@ jobs:
     runs-on: ubuntu-latest
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
+      # Runs a set of commands using the runners shell
+      - name: Run app update scripts
+        run: |
+          sudo modprobe configs
+
       - name: Test installing updated apps
         uses: theofficialgman/arm-runner-action@v4
         with:
           # this is a buster armhf image
-          base_image: https://developer.download.nvidia.com/embedded/L4T/r32-3-1_Release_v1.0/Jetson-Nano-SDCard-Image/nv-jetson-nano-sd-card-image-r32.3.1.zip
-          bootpartition:
-          rootpartition: 1
-          # changes are not saved after the chroot is exited so it is safe to operate within the pi-apps directory
+          base_image: https://downloads.raspberrypi.org/raspios_oldstable_armhf/images/raspios_oldstable_armhf-2022-09-26/2022-09-22-raspios-buster-armhf.img.xz
+          # bind mount the directory so any changes propogate to outside the chroot
+          bind_mount_repository: yes
 
           # give the image more space
           image_additional_mb: 5000
 
-          # set CPU to use
-          cpu: cortex-a57
+          # set CPUs to use
+          cpu: cortex-a7:cortex-a72
 
           # user runner name as default path
-          copy_repository_path: /home/runner/testing
+          copy_repository_path: /home/runner/pi-apps
+
+          # export github env back to outside the chroot
+          export_github_env: yes
 
           import_github_env: true
+
+          # set shell to bash
+          shell: /bin/bash
           commands: |
-            # print user info
-            sudo chown runner:docker /home/runner
-            ls -l /home
-            ls -l /home/runner
-            echo $USER $USERNAME $(id) $(whoami)
-            lspci
-            free
-            nproc
-            ls /etc/apt/sources.list.d/
-            cat /etc/apt/sources.list.d/*
+            gunzip < /proc/config.gz
