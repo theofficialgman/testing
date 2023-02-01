@@ -13,7 +13,7 @@ jobs:
       # Runs a set of commands using the runners shell
       - name: Run app update scripts
         run: |
-          sudo modprobe configs
+          /boot/config-$(uname -r)
 
       - name: Test installing updated apps
         uses: theofficialgman/arm-runner-action@v4
