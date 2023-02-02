@@ -13,7 +13,7 @@ jobs:
       # Runs a set of commands using the runners shell
       - name: Run app update scripts
         run: |
-          cat /boot/config-$(uname -r)
+          lsmod
 
       - name: Test installing updated apps
         uses: theofficialgman/arm-runner-action@v4
@@ -40,4 +40,4 @@ jobs:
           # set shell to bash
           shell: /bin/bash
           commands: |
-            gunzip < /proc/config.gz
+            lsmod
