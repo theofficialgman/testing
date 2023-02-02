@@ -13,7 +13,7 @@ jobs:
       # Runs a set of commands using the runners shell
       - name: Run app update scripts
         run: |
-          echo "cat modules.builtin output:
+          echo "cat modules.builtin output:"
           cat /lib/modules/$(uname -r)/modules.builtin
           echo "cat /boot/config-$(uname -r)"
           cat /boot/config-$(uname -r)
