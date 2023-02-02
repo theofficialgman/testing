@@ -48,4 +48,4 @@ jobs:
           # set shell to bash
           shell: /bin/bash
           commands: |
-            lsmod
+            sudo modprobe fuse
