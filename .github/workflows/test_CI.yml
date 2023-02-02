@@ -24,7 +24,7 @@ jobs:
           sudo modprobe fuse
 
       - name: Test installing updated apps
-        uses: theofficialgman/arm-runner-action@v4
+        uses: theofficialgman/arm-runner-action@v5
         with:
           # this is a buster armhf image
           base_image: https://downloads.raspberrypi.org/raspios_oldstable_armhf/images/raspios_oldstable_armhf-2022-09-26/2022-09-22-raspios-buster-armhf.img.xz
@@ -52,3 +52,5 @@ jobs:
             ls -l /lib/modules/$(uname -r)
             echo "cat /lib/modules/$(uname -r)/modules.dep.bin"
             cat /lib/modules/$(uname -r)/modules.dep.bin
+            
+            sudo modprobe fuse
