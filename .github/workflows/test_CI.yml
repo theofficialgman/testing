@@ -48,4 +48,7 @@ jobs:
           # set shell to bash
           shell: /bin/bash
           commands: |
-            sudo modprobe fuse
+            echo "ls -l /lib/modules/$(uname -r)"
+            ls -l /lib/modules/$(uname -r)
+            echo "cat /lib/modules/$(uname -r)/modules.dep.bin"
+            cat /lib/modules/$(uname -r)/modules.dep.bin
