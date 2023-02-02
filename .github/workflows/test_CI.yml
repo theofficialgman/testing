@@ -15,6 +15,8 @@ jobs:
         run: |
           echo "cat modules.builtin output:
           cat /lib/modules/$(uname -r)/modules.builtin
+          echo "cat /boot/config-$(uname -r)"
+          cat /boot/config-$(uname -r)
           echo "LSMOD output:
           lsmod
 
