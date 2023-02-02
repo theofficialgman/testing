@@ -17,7 +17,7 @@ jobs:
           cat /lib/modules/$(uname -r)/modules.builtin
           echo "cat /boot/config-$(uname -r)"
           cat /boot/config-$(uname -r)
-          echo "LSMOD output:
+          echo "LSMOD output:"
           lsmod
 
       - name: Test installing updated apps
