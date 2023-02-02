@@ -20,6 +20,9 @@ jobs:
           echo "LSMOD output:"
           lsmod
 
+          echo "sudo modprobe fuse"
+          sudo modprobe fuse
+
       - name: Test installing updated apps
         uses: theofficialgman/arm-runner-action@v4
         with:
