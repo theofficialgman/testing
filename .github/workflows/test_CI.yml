@@ -14,8 +14,8 @@ jobs:
       - name: Run app update scripts
         run: |
           sudo apt install shellcheck wget -y
-          wget https://raw.githubusercontent.com/Botspot/pi-apps/master/api
-          chmod +x api
-          if shellcheck api --color=always | grep '\[31m' --before 1 ;then
+          git clone https://github.com/Botspot/pi-apps.git
+          cd pi-apps
+          if shellcheck ./* --color=always | grep '\[31m' --before 1 ;then
             exit 1
           fi
