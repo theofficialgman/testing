@@ -5,26 +5,15 @@ on:
   workflow_dispatch:
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
-  update-apps:
-    # The type of runner that the job will run on
+  testing:
     runs-on: ubuntu-latest
+
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
-      - uses: actions/checkout@v3
-      - name: Test installing app on focal arm64
-        uses: theofficialgman/arm-runner-action@v8
-        with:
-          base_image: https://developer.nvidia.com/downloads/r35releasev21-jetson-nx-jp51-sd-card-imagezip
-          bootpartition:
-          rootpartition: 1
-          bind_mount_repository: yes
-          image_additional_mb: 5000
-          cpu: cortex-a7:cortex-a72
-          copy_repository_path: /home/runner/L4T-Megascript
-          export_github_env: yes
-          import_github_env: true
-          shell: /bin/bash
-          commands: |
-            sudo dpkg --add-architecture armhf
-            sudo apt update
-            sudo apt install -y libegl1-mesa:armhf libgl1-mesa-glx:armhf libgles2-mesa:armhf libsdl2-2.0-0:arm64 libsdl2-2.0-0:armhf libsdl2-mixer-2.0-0:armhf libsdl2-mixer-2.0-0:arm64 libgtk3-nocsd0:armhf libnss3:armhf libnm0:armhf libdbus-glib-1-2:armhf libudev1:armhf libnspr4:armhf libgudev-1.0-0:armhf libxtst6:armhf libsm6:armhf libice6:armhf libusb-1.0-0:armhf libnss3 libnm0 libdbus-glib-1-2 libudev1 libnspr4 libgudev-1.0-0 libxtst6 libsm6 libice6 libusb-1.0-0
+      # Runs a set of commands using the runners shell
+      - name: Run app update scripts
+        run: |
+          sudo apt install shellcheck wget -y
+          wget https://raw.githubusercontent.com/Botspot/pi-apps/75c04b3092e96ab9af68566c5879a862c96123b7/api
+          chmod +x api
+          shellcheck api
