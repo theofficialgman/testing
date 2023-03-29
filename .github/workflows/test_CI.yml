@@ -14,6 +14,6 @@ jobs:
       - name: Run app update scripts
         run: |
           sudo apt install shellcheck wget -y
-          wget https://raw.githubusercontent.com/Botspot/pi-apps/75c04b3092e96ab9af68566c5879a862c96123b7/api
+          wget https://raw.githubusercontent.com/Botspot/pi-apps/master/api
           chmod +x api
           shellcheck api
