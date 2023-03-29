@@ -16,4 +16,6 @@ jobs:
           sudo apt install shellcheck wget -y
           wget https://raw.githubusercontent.com/Botspot/pi-apps/master/api
           chmod +x api
-          shellcheck api
+          if shellcheck "${DIRECTORY}/api" --color=always | grep '\[31m' --before 1 ;then
+            exit 1
+          fi
