@@ -16,6 +16,6 @@ jobs:
           sudo apt install shellcheck wget -y
           git clone https://github.com/Botspot/pi-apps.git
           cd pi-apps
-          if shellcheck api createapp gui install manage preload settings uninstall updater etc/preload-daemon etc/runonce-entries etc/terminal-run --color=always | sed '/\[31m/' ;then
+          if shellcheck api createapp gui install manage preload settings uninstall updater etc/preload-daemon etc/runonce-entries etc/terminal-run --color=always | sed '0,/\[31m/!d' ;then
             exit 1
           fi
