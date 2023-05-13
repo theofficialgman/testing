@@ -16,3 +16,5 @@ jobs:
         run: |
           num_users="10000"
           /usr/bin/printf "%'d" "$num_users"
+          printf "%'d" 123456
+          /usr/bin/printf "%'d" 1234567
