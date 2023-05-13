@@ -20,3 +20,4 @@ jobs:
           /usr/bin/printf "%'d" 1234567
           LC_NUMERIC=en_US printf "%'.f\n" 123456789
           echo "123456789" | sed ':a;s/\B[0-9]\{3\}\>/,&/;ta'
+          numfmt --grouping 123456789
