@@ -15,14 +15,4 @@ jobs:
         shell: bash
         run: |
           num_users="10000"
-          printf "%'d" "$num_users"
-          arch_users="$arch - $(printf "%'d" "$num_users") Users"
-          echo "$arch_users"
-          if [ "$num_users" -ge 10000 ];then
-            #if this app has over 10,000 users, add two exclamation points!!
-            arch_users+="!!"
-          elif [ "$num_users" -ge 1500 ];then
-            #if this app has over 1500 users, add an exclamation point!
-            arch_users+="!"
-          fi
-          echo "$arch_users"
+          /usr/bin/printf "%'d" "$num_users"
