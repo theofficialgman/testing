@@ -3,21 +3,31 @@ name: Test CI
 on:
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
-# A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
-  testing:
+  _:
     runs-on: ubuntu-latest
-
-    # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
-      # Runs a set of commands using the runners shell
-      - name: Run app update scripts
-        shell: bash
-        run: |
-          num_users="10000"
-          /usr/bin/printf "%'d" "$num_users"
-          printf "%'d" 123456
-          /usr/bin/printf "%'d" 1234567
-          LC_NUMERIC=en_US printf "%'.f\n" 123456789
-          echo "123456789" | sed ':a;s/\B[0-9]\{3\}\>/,&/;ta'
-          numfmt --grouping 123456789
+    - name: SetLocale
+      shell: bash
+      run: |
+              sudo apt-get update && sudo apt-get install locales-all -y
+              echo "LANG=en_US.UTF-8" >> "$GITHUB_ENV"
+              echo LC_CTYPE="en_US.UTF-8" >> "$GITHUB_ENV"
+              echo LC_NUMERIC="en_US.UTF-8" >> "$GITHUB_ENV"
+              echo LC_TIME="en_US.UTF-8" >> "$GITHUB_ENV"
+              echo LC_COLLATE="en_US.UTF-8" >> "$GITHUB_ENV"
+              echo LC_MONETARY="en_US.UTF-8" >> "$GITHUB_ENV"
+              echo LC_MESSAGES="en_US.UTF-8" >> "$GITHUB_ENV"
+              echo LC_PAPER="en_US.UTF-8" >> "$GITHUB_ENV"
+              echo LC_NAME="en_US.UTF-8" >> "$GITHUB_ENV"
+              echo LC_ADDRESS="en_US.UTF-8" >> "$GITHUB_ENV"
+              echo LC_TELEPHONE="en_US.UTF-8" >> "$GITHUB_ENV"
+              echo LC_MEASUREMENT="en_US.UTF-8" >> "$GITHUB_ENV"
+              echo LC_IDENTIFICATION="en_US.UTF-8" >> "$GITHUB_ENV"
+              echo LC_ALL="en_US.UTF-8" >> "$GITHUB_ENV"     
+    - name: Test
+      shell: bash
+      run: |
+              /usr/bin/printf "%'d" 123456789
+              printf "%'d" 123456789
+              numfmt --grouping 123456789
