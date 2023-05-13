@@ -13,7 +13,7 @@ jobs:
       # Runs a set of commands using the runners shell
       - name: Run app update scripts
         run: |
-          num_users=10000
+          num_users="10000"
           printf "%'d" "$num_users"
           arch_users="$arch - $(printf "%'d" "$num_users") Users"
           echo "$arch_users"
