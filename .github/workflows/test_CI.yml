@@ -18,3 +18,5 @@ jobs:
           /usr/bin/printf "%'d" "$num_users"
           printf "%'d" 123456
           /usr/bin/printf "%'d" 1234567
+          LC_NUMERIC=en_US printf "%'.f\n" 123456789
+          echo "123456789" | sed ':a;s/\B[0-9]\{3\}\>/,&/;ta'
