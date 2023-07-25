@@ -10,7 +10,7 @@ jobs:
       - name: Test installing app on bullseye arm64
         uses: theofficialgman/arm-runner-action@v9
         with:
-          base_image: https://downloads.raspberrypi.org/raspios_arm64/images/raspios_arm64-2023-05-03/2023-05-03-raspios-bullseye-arm64.img.xz
+          base_image: ${{ secrets.RPIOS_BOOKWORM_URL }}
           bind_mount_repository: yes
           image_additional_mb: 5000
           cpu: cortex-a7:cortex-a72
