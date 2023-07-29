@@ -14,11 +14,15 @@ jobs:
       - id: step1
         run: |
           echo "test=hi
-          this" >> "$GITHUB_OUTPUT"
+          this"
+          test="${test//$'\n'/'%0A'}"
+          echo "test=$test" >> "$GITHUB_OUTPUT"
       - id: step2
         run: |
-          echo "test2=is
-          a test" >> "$GITHUB_OUTPUT"
+          echo "test=is
+          a test"
+          test="${test//$'\n'/'%0A'}"
+          echo "test=$test" >> "$GITHUB_OUTPUT"
   job2:
     runs-on: ubuntu-latest
     needs: job1
