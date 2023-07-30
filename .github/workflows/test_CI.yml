@@ -8,5 +8,4 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - run: |
-          ls -l /scripts
           ls -l ${RUNNER_TEMP}/scripts
