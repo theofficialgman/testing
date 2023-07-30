@@ -16,3 +16,4 @@ jobs:
           - PyChess-all: 1.0.3 -> 1.0.4'
           export
           env
+          export | sed -e 's/^declare -x //g;s/^[^=]*$/\0=""/g;s/='\''\(.*\)'\''$/=\1/g'
