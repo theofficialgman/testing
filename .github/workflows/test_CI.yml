@@ -16,13 +16,13 @@ jobs:
           test="hi
           this"
           test="${test//$'\n'/'%0A'}"
-          echo "test=$test" >> "$GITHUB_OUTPUT"
+          echo "::set-output name=test::$test"
       - id: step2
         run: |
           test="is
           a test"
           test="${test//$'\n'/'%0A'}"
-          echo "test=$test" >> "$GITHUB_OUTPUT"
+          echo "::set-output name=test::$test"
   job2:
     runs-on: ubuntu-latest
     needs: job1
