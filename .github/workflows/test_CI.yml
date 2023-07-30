@@ -8,24 +8,24 @@ jobs:
     runs-on: ubuntu-latest
     # Map a step output to a job output
     outputs:
-      output1: ${{ steps.step1.outputs.test }}
-      output2: ${{ steps.step2.outputs.test }}
+      output1: ${{ steps.step1.outputs.FAILED_UPDATE_APPS_buster_armhf }}
+      output2: ${{ steps.step2.outputs.UPDATED_APPS_buster_armhf }}
     steps:
       - id: step1
         run: |
-          test="hi
-          this
-          is"
-          echo "test<<EOF" >> "$GITHUB_OUTPUT"
-          echo "$test" >> "$GITHUB_OUTPUT"
-          echo "EOF" >> "$GITHUB_OUTPUT"
+          echo "FAILED_UPDATE_APPS_buster_armhf<<EOF" >> $GITHUB_OUTPUT
+          echo "Boxy SVG
+          PyChess
+          " >> $GITHUB_OUTPUT
+          echo "EOF" >> $GITHUB_OUTPUT
       - id: step2
         run: |
-          test="a
-          test"
-          echo "test<<EOF" >> "$GITHUB_OUTPUT"
-          echo "$test" >> "$GITHUB_OUTPUT"
-          echo "EOF" >> "$GITHUB_OUTPUT"
+          echo "UPDATED_APPS_buster_armhf<<EOF" >> $GITHUB_OUTPUT
+          echo "- BlockBench-arm64: 4.7.4 -> 4.8.0 
+          - BlockBench-armhf: 4.7.4 -> 4.8.0 =
+          - Github Desktop-arm64: 3.2.7-linux1 -> 3.2.7-linux2 =
+          - Github Desktop-armhf: 3.2.7-linux1 -> 3.2.7-linux2 =" >> $GITHUB_OUTPUT
+          echo "EOF" >> $GITHUB_OUTPUT
   job2:
     runs-on: ubuntu-latest
     needs: job1
