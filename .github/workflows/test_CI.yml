@@ -13,13 +13,13 @@ jobs:
     steps:
       - id: step1
         run: |
-          echo "test=hi
+          test="hi
           this"
           test="${test//$'\n'/'%0A'}"
           echo "test=$test" >> "$GITHUB_OUTPUT"
       - id: step2
         run: |
-          echo "test=is
+          test="is
           a test"
           test="${test//$'\n'/'%0A'}"
           echo "test=$test" >> "$GITHUB_OUTPUT"
