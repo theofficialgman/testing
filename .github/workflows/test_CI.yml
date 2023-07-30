@@ -13,15 +13,18 @@ jobs:
     steps:
       - id: step1
         run: |
+          test="hi
+          this
+          is"
           echo "test<<EOF" >> "$GITHUB_OUTPUT"
-          echo "hi" >> "$GITHUB_OUTPUT"
-          echo "this" >> "$GITHUB_OUTPUT"
+          echo "$test" >> "$GITHUB_OUTPUT"
           echo "EOF" >> "$GITHUB_OUTPUT"
       - id: step2
         run: |
+          test="a
+          test"
           echo "test<<EOF" >> "$GITHUB_OUTPUT"
-          echo "is" >> "$GITHUB_OUTPUT"
-          echo "a test" >> "$GITHUB_OUTPUT"
+          echo "$test" >> "$GITHUB_OUTPUT"
           echo "EOF" >> "$GITHUB_OUTPUT"
   job2:
     runs-on: ubuntu-latest
