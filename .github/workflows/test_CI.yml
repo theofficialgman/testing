@@ -8,7 +8,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - run: |
-          UPDATED_APPS='- BlockBench-arm64: 4.7.4 -> 4.8.0 
+          export UPDATED_APPS='- BlockBench-arm64: 4.7.4 -> 4.8.0 
           - BlockBench-armhf: 4.7.4 -> 4.8.0
           - Boxy SVG-all: 3.96.0.zip -> 4.1.0.zip
           - Github Desktop-arm64: 3.2.7-linux1 -> 3.2.7-linux2
