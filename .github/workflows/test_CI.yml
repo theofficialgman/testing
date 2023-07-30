@@ -8,4 +8,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - run: |
+          sudo apt update
+          sudo apt install tree -y
+          tree /
           ls -l /home/actions/temp/scripts
