@@ -12,7 +12,7 @@ jobs:
     - name: Build
       run: |
         sudo docker run -i -v "${PWD}" "arm32v7/ubuntu:focal" /bin/bash -c "apt update
-        DEBIAN_FRONTEND="noninteractive" TZ="Europe/London" apt-get install -y --no-install-recommends git ca-certificates build-essential libssl-dev autoconf automake libtool \
+        DEBIAN_FRONTEND="noninteractive" TZ="Europe/London" apt-get install -y --no-install-recommends git ca-certificates build-essential cmake libssl-dev autoconf automake libtool \
         wget vim-common desktop-file-utils pkgconf libgpgme-dev \
         libglib2.0-dev libcairo2-dev librsvg2-dev libfuse-dev git libcurl4-openssl-dev argagg-dev libgcrypt20-dev libboost-dev
 
