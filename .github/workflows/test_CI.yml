@@ -23,4 +23,4 @@ jobs:
         mkdir -p build
         cd build
         cmake -DBUILD_TESTING=OFF -DCMAKE_INSTALL_PREFIX=/usr -DCMAKE_BUILD_TYPE=RelWithDebInfo -DCMAKE_SYSTEM_NAME=Linux -DCMAKE_CXX_FLAGS=-D_FILE_OFFSET_BITS=64 -DCMAKE_C_FLAGS=-D_FILE_OFFSET_BITS=64 .. 
-        make -j"$(nproc)"
+        make -j$(nproc)"
