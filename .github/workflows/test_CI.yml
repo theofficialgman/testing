@@ -12,7 +12,8 @@ jobs:
         sudo apt update
         sudo apt install -y qemu-user-static
         /usr/bin/qemu-aarch64-static --version
-        sudo docker run -i -v "${PWD}" -v /usr/bin/qemu-aarch64-static "arm64v8/ubuntu:focal" /bin/bash -c "apt update
+        sudo docker run -i -v /usr/bin/qemu-aarch64-static:/usr/bin/qemu-aarch64-static "arm64v8/ubuntu:focal" /bin/bash -c "/usr/bin/qemu-aarch64-static --version
+        apt update
         DEBIAN_FRONTEND="noninteractive" TZ="Europe/London" apt-get install -y --no-install-recommends wget sed ca-certificates
         wget https://github.com/AppImage/AppImageKit/releases/download/continuous/appimagetool-aarch64.AppImage
         chmod +x ./appimagetool-aarch64.AppImage
