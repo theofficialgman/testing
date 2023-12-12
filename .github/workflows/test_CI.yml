@@ -15,6 +15,7 @@ jobs:
         DEBIAN_FRONTEND="noninteractive" TZ="Europe/London" apt-get install -y --no-install-recommends wget sed ca-certificates
         wget https://github.com/AppImage/AppImageKit/releases/download/continuous/appimagetool-aarch64.AppImage
         chmod +x ./appimagetool-aarch64.AppImage
-        sed -i 's|AI\x02|\x00\x00\x00|' ./appimagetool-aarch64.AppImage
-        ./appimagetool-aarch64.AppImage --appimage-extract"
+        wget https://github.com/AppImage/AppImageKit/releases/download/continuous/AppRun-aarch64
+        chmod +x ./AppRun-aarch64
+        ./appimagetool-aarch64.AppImage --runtime-file ./AppRun-aarch64 --appimage-extract"
         
