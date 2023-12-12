@@ -9,7 +9,7 @@ jobs:
     steps:
     - name: Build
       run: |
-        docker run --rm --privileged multiarch/qemu-user-static --reset -p yes
+        docker run --rm --privileged multiarch/qemu-user-static:register --reset
         /usr/bin/qemu-aarch64-static --version
         sudo docker run -i -v "${PWD}" -v /usr/bin/qemu-aarch64-static "arm64v8/ubuntu:focal" /bin/bash -c "apt update
         DEBIAN_FRONTEND="noninteractive" TZ="Europe/London" apt-get install -y --no-install-recommends wget sed ca-certificates
