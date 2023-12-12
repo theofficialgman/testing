@@ -11,6 +11,7 @@ jobs:
       uses: docker/setup-qemu-action@v2
     - name: Build
       run: |
+        ls /usr/bin/
         qemu-aarch64 --version
         sudo docker run -i -v "${PWD}" "arm64v8/ubuntu:focal" /bin/bash -c "apt update
         DEBIAN_FRONTEND="noninteractive" TZ="Europe/London" apt-get install -y --no-install-recommends wget sed ca-certificates
