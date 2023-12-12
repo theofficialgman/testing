@@ -14,6 +14,7 @@ jobs:
         sudo docker run -i -v "${PWD}" "arm64v8/ubuntu:focal" /bin/bash -c "apt update
         DEBIAN_FRONTEND="noninteractive" TZ="Europe/London" apt-get install -y --no-install-recommends wget sed ca-certificates
         wget https://github.com/AppImage/AppImageKit/releases/download/continuous/appimagetool-aarch64.AppImage
+        chmod +x ./appimagetool-aarch64.AppImage
         sed -i 's|AI\x02|\x00\x00\x00|' ./appimagetool-aarch64.AppImage
         ./appimagetool-aarch64.AppImage --appimage-extract"
         
