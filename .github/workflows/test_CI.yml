@@ -11,16 +11,7 @@ jobs:
       uses: docker/setup-qemu-action@v2
     - name: Build
       run: |
-        sudo docker run -i -v "${PWD}" "arm32v7/ubuntu:jammy" /bin/bash -c "apt update
-        DEBIAN_FRONTEND="noninteractive" TZ="Europe/London" apt-get install -y --no-install-recommends git ca-certificates build-essential cmake libssl-dev autoconf automake libtool \
-        wget vim-common desktop-file-utils pkgconf libgpgme-dev nlohmann-json3-dev \
-        libglib2.0-dev libcairo2-dev librsvg2-dev libfuse-dev git libcurl4-openssl-dev argagg-dev libgcrypt20-dev libboost-dev
-
-        git clone https://github.com/AppImageCommunity/AppImageUpdate.git
-        cd AppImageUpdate
-        git checkout --recurse-submodules 2.0.0-alpha-1-20230526
-        git submodule update --init --recursive
-        mkdir -p build
-        cd build
-        cmake -DBUILD_TESTING=OFF -DCMAKE_INSTALL_PREFIX=/usr -DCMAKE_BUILD_TYPE=RelWithDebInfo -DCMAKE_SYSTEM_NAME=Linux -DCMAKE_CXX_FLAGS=-D_FILE_OFFSET_BITS=64 -DCMAKE_C_FLAGS=-D_FILE_OFFSET_BITS=64 .. 
-        make -j$(nproc)"
+        sudo docker run -i -v "${PWD}" "aarch64/ubuntu:focal" /bin/bash -c "wget https://github.com/AppImage/AppImageKit/releases/download/continuous/appimagetool-aarch64.AppImage
+        sed -i s|AI\x02|\x00\x00\x00| ./appimagetool-aarch64.AppImage
+        ./appimagetool-aarch64.AppImage --appimage-extract       
+        
