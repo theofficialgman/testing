@@ -5,11 +5,12 @@ on:
   workflow_dispatch:
 jobs:
   job1:
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-latest
     steps:
     - name: Build
       run: |
-        docker run --rm --privileged multiarch/qemu-user-static:register --reset
+        sudo apt update
+        sudo apt install -y qemu-user-static
         /usr/bin/qemu-aarch64-static --version
         sudo docker run -i -v "${PWD}" -v /usr/bin/qemu-aarch64-static "arm64v8/ubuntu:focal" /bin/bash -c "apt update
         DEBIAN_FRONTEND="noninteractive" TZ="Europe/London" apt-get install -y --no-install-recommends wget sed ca-certificates
