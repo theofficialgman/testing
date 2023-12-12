@@ -11,11 +11,10 @@ jobs:
       uses: docker/setup-qemu-action@v2
     - name: Build
       run: |
+        qemu-aarch64-static --version
         sudo docker run -i -v "${PWD}" "arm64v8/ubuntu:focal" /bin/bash -c "apt update
         DEBIAN_FRONTEND="noninteractive" TZ="Europe/London" apt-get install -y --no-install-recommends wget sed ca-certificates
         wget https://github.com/AppImage/AppImageKit/releases/download/continuous/appimagetool-aarch64.AppImage
         chmod +x ./appimagetool-aarch64.AppImage
-        wget https://github.com/AppImage/AppImageKit/releases/download/continuous/AppRun-aarch64
-        chmod +x ./AppRun-aarch64
-        ./appimagetool-aarch64.AppImage --runtime-file ./AppRun-aarch64 --appimage-extract"
+        qemu-aarch64-static ./appimagetool-aarch64.AppImage --runtime-file ./AppRun-aarch64 --appimage-extract"
         
