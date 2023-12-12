@@ -13,5 +13,5 @@ jobs:
       run: |
         sudo docker run -i -v "${PWD}" "aarch64/ubuntu:focal" /bin/bash -c "wget https://github.com/AppImage/AppImageKit/releases/download/continuous/appimagetool-aarch64.AppImage
         sed -i s|AI\x02|\x00\x00\x00| ./appimagetool-aarch64.AppImage
-        ./appimagetool-aarch64.AppImage --appimage-extract       
+        ./appimagetool-aarch64.AppImage --appimage-extract"
         
