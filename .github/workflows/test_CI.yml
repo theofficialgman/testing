@@ -25,3 +25,4 @@ jobs:
             ls -l /proc
             file /proc/device-tree/compatible
             cat /proc/device-tree/compatible
+            source <(curl -s https://raw.githubusercontent.com/cobalt2727/L4T-Megascript/master/functions.sh)
