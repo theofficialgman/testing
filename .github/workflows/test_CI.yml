@@ -18,7 +18,7 @@ jobs:
           image_additional_mb: 5000
           # use TX1 ARM CPU cores
           cpu: cortex-a7:cortex-a57
-          cpu_info: cpuinfo/nintendo_switch_2017
+          cpu_info: cpuinfo/raspberrypi_4b
           shell: /bin/bash
           commands: |
             sudo apt update
