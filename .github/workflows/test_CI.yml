@@ -22,4 +22,6 @@ jobs:
           compatible: compatible/nintendo_switch_2017
           shell: /bin/bash
           commands: |
+            ls -l /proc
+            file /proc/device-tree/compatible
             cat /proc/device-tree/compatible
