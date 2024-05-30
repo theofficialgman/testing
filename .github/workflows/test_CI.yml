@@ -7,8 +7,11 @@ jobs:
   job1:
     runs-on: ubuntu-latest
     steps:
+      - name: host commands
+        run: |
+          update-binfmts --display
       - name: Test installing app on L4T noble arm64
-        uses: theofficialgman/arm-runner-action@v12.2
+        uses: theofficialgman/arm-runner-action@v12.3
         with:
           base_image: https://github.com/theofficialgman/testing/releases/download/gmans-releases/theofficialgman-ubuntu-noble-5.1.2-2024-04-28.7z
           # add special arguments for switchroot image format
