@@ -9,7 +9,7 @@ jobs:
     steps:
       - name: host commands
         run: |
-          update-binfmts --display
+          sudo update-binfmts --disable appimage-type2
       - name: Test installing app on L4T noble arm64
         uses: theofficialgman/arm-runner-action@v12.3
         with:
