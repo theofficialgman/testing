@@ -8,11 +8,12 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Test installing
-        uses: theofficialgman/arm-runner-action@v12.4
+        uses: theofficialgman/arm-runner-action@v12.5
         with:
           base_image: https://downloads.raspberrypi.com/raspios_arm64/images/raspios_arm64-2024-03-15/2024-03-15-raspios-bookworm-arm64.img.xz
           shell: /bin/bash
           commands: |
+            sudo apt install -y libfuse2
             wget https://github.com/musescore/MuseScore/releases/download/v4.3.1/MuseScore-Studio-4.3.1.241490902-aarch64.AppImage -O /tmp/MuseScore.AppImage
             chmod +x /tmp/MuseScore.AppImage
             sudo /tmp/MuseScore.AppImage install
