@@ -3,6 +3,8 @@ name: Test CI
 on:
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
+env:
+  ACTIONS_ALLOW_USE_UNSECURE_NODE_VERSION: true
 jobs:
   job1:
     # The type of runner that the job will run on
@@ -15,6 +17,4 @@ jobs:
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
       - uses: actions/checkout@v3
-        env:
-          ACTIONS_ALLOW_USE_UNSECURE_NODE_VERSION: true
 
