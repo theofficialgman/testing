@@ -5,16 +5,21 @@ on:
   workflow_dispatch:
 jobs:
   job1:
-    runs-on: ubuntu-latest
+    # The type of runner that the job will run on
+    runs-on: ubuntu-20.04
+    container: ubuntu:18.04
+    defaults:
+      run:
+        shell: bash
+
+    # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
-      - name: Test installing
-        uses: theofficialgman/arm-runner-action@v12.5
-        with:
-          base_image: https://downloads.raspberrypi.com/raspios_arm64/images/raspios_arm64-2024-03-15/2024-03-15-raspios-bookworm-arm64.img.xz
-          shell: /bin/bash
-          commands: |
-            sudo apt install -y libfuse2
-            wget https://github.com/musescore/MuseScore/releases/download/v4.3.1/MuseScore-Studio-4.3.1.241490902-aarch64.AppImage -O /tmp/MuseScore.AppImage
-            chmod +x /tmp/MuseScore.AppImage
-            sudo /tmp/MuseScore.AppImage install
+      - name: Install dependencies into dockerfile
+        run: |
+          apt update
+          apt install -y sudo wget tree
+          wget https://unofficial-builds.nodejs.org/download/release/v20.15.0/node-v20.15.0-linux-x64-glibc-217.tar.gz
+          tar -xvf node-v20.15.0-linux-x64-glibc-217.tar.gz
+          ls -l
+          tree
 
