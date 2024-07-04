@@ -22,4 +22,11 @@ jobs:
           tar -xvf node-v20.15.0-linux-x64-glibc-217.tar.gz
           ls -l
           tree /opt ./node-v20.15.0-linux-x64-glibc-217/bin
+          # install new enough git to run actions/checkout
+          sudo add-apt-repository ppa:git-core/ppa -y
+          sudo apt update
+          sudo apt install -y git
+          # avoid "fatal: detected dubious ownership in repository" error
+          git config --global --add safe.directory '*'
+      - uses: actions/checkout@v3
 
