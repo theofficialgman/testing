@@ -21,7 +21,8 @@ jobs:
           wget https://unofficial-builds.nodejs.org/download/release/v20.15.0/node-v20.15.0-linux-x64-glibc-217.tar.gz
           tar -xvf node-v20.15.0-linux-x64-glibc-217.tar.gz
           ls -l
-          tree /__e/ /opt ./node-v20.15.0-linux-x64-glibc-217/bin
+          sudo rm -rf /__e/node16
+          sudo mv ./node-v20.15.0-linux-x64-glibc-217/ /__e/node16
           # install new enough git to run actions/checkout
           sudo add-apt-repository ppa:git-core/ppa -y
           sudo apt update
